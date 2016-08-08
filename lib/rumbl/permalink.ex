@@ -3,10 +3,17 @@ defmodule Rumbl.Permalink do
 
   def type, do: :id
 
-  def cast(binary) when is_binary(binary) do
-    case Integer.parse(binary) do
-      {int, _} when int > 0 -> {:ok, int}
-      _ -> :error
+  def cast(binary) do
+    id =
+      binary
+      |> String.split("-")
+      |> Enum.reverse
+      |> hd
+    if id do
+      {integer, _} = Integer.parse(id)
+      {:ok, integer}
+    else
+      :error
     end
   end
 
