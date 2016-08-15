@@ -4,7 +4,7 @@ defmodule Rumbl.Mixfile do
   def project do
     [app: :rumbl,
      version: "0.0.1",
-     elixir: "~> 1.2",
+     elixir: "~> 1.3.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -42,16 +42,17 @@ defmodule Rumbl.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.2.0"},
+      {:phoenix, "~> 1.2.1"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.0"},
+      {:phoenix_ecto, "~> 3.0.01"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.6"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_html, "~> 2.6.2"},
+      {:phoenix_live_reload, "~> 1.0.5", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:short_maps, "~> 0.1.1"},
-      {:comeonin, "~> 2.0"}
+      {:comeonin, "~> 2.0"},
+      {:guardian, "~> 0.12.0"}
     ]
   end
 

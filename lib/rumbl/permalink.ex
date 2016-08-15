@@ -3,7 +3,7 @@ defmodule Rumbl.Permalink do
 
   def type, do: :id
 
-  def cast(binary) do
+  def cast(binary) when is_binary(binary) do
     id =
       binary
       |> String.split("-")

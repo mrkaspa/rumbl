@@ -11,7 +11,11 @@ defmodule Rumbl.Auth do
   def call(conn, repo) do
     user_id = get_session(conn, :user_id)
     user = user_id && repo.get(Rumbl.User, user_id)
-    assign(conn, :current_user, user)
+    token = Phoenix.Token.sign(conn, "user socket", user_id)
+    IO.puts("token gen #{token}")
+    conn
+    |> assign(:current_user, user)
+    |> assign(:user_token, token)
   end
 
   def authenticate_user(conn, _opts) do
