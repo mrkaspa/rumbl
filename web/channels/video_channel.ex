@@ -21,7 +21,7 @@ defmodule Rumbl.VideoChannel do
   def handle_in(event, params, socket) do
     user = Repo.get(Rumbl.User, socket.assigns.user_id)
     handle_in(event, params, user, socket)
-  end
+  end 
 
 
   def handle_in("new_annotation", params, user, socket) do
